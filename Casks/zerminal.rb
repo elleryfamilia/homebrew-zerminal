@@ -1,6 +1,6 @@
 cask "zerminal" do
-  version "0.1.11"
-  sha256 "adeee7e3f803409858eb8b3a754406e2a687dad30b29568f42f509118a3c9232"
+  version "0.1.12"
+  sha256 "592811c35de838f29d09354a4bb425a6b80ea02076831d2df16107097b21c0eb"
 
   url "https://github.com/elleryfamilia/zerminal/releases/download/v#{version}/Zerminal-aarch64.dmg"
   name "Zerminal"
