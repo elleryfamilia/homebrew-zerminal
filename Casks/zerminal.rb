@@ -26,7 +26,12 @@ cask "zerminal" do
 
   uninstall_postflight do
     prefix = `brew --prefix`.strip
-    File.delete("#{prefix}/etc/zerminal/install_source") rescue nil
+    path = "#{prefix}/etc/zerminal/install_source"
+    begin
+      File.delete(path)
+    rescue Errno::ENOENT
+      # File already gone — fine.
+    end
   end
 
   zap trash: [
