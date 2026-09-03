@@ -18,14 +18,14 @@ cask "zerminal" do
   app "Zerminal.app"
 
   postflight do
-    prefix = `brew --prefix`.strip
+    prefix = ENV["HOMEBREW_PREFIX"]
     dir = "#{prefix}/etc/zerminal"
     FileUtils.mkdir_p dir
     File.write("#{dir}/install_source", "homebrew\n")
   end
 
   uninstall_postflight do
-    prefix = `brew --prefix`.strip
+    prefix = ENV["HOMEBREW_PREFIX"]
     path = "#{prefix}/etc/zerminal/install_source"
     begin
       File.delete(path)
